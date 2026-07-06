@@ -1,0 +1,94 @@
+<!-- templates/output.html -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Prediction Result</title>
+
+    <style>
+
+        body{
+            font-family:Arial;
+            background:linear-gradient(to right,#667eea,#764ba2);
+            padding:40px;
+        }
+
+        .container{
+            background:white;
+            padding:40px;
+            border-radius:20px;
+            max-width:700px;
+            margin:auto;
+        }
+
+        .box{
+            padding:20px;
+            border-radius:10px;
+            text-align:center;
+            font-size:28px;
+            font-weight:bold;
+        }
+
+        .stay{
+            background:#d4edda;
+            color:#155724;
+        }
+
+        .churn{
+            background:#f8d7da;
+            color:#721c24;
+        }
+
+        .btn{
+            display:block;
+            margin-top:20px;
+            padding:15px;
+            background:#2563eb;
+            color:white;
+            text-align:center;
+            text-decoration:none;
+            border-radius:10px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>AI Customer Churn Prediction</h1>
+
+{% if result == 'LIKELY TO CHURN' %}
+
+<div class="box churn">
+    Customer is Likely to CHURN
+</div>
+
+{% else %}
+
+<div class="box stay">
+    Customer is Likely to STAY
+</div>
+
+{% endif %}
+
+<h2>Prediction Probability: {{ probability }}%</h2>
+
+<h2>Risk Level: {{ risk }}</h2>
+
+<a href="/dashboard" class="btn">View Dashboard</a>
+
+<a href="{{ url_for('download_report') }}">
+    <button>Download Report</button>
+</a>
+
+<a href="/" class="btn">Predict Again</a>
+
+</div>
+
+</body>
+</html>

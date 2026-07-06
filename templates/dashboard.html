@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Dashboard</title>
+
+    <style>
+
+        body{
+            font-family:Arial;
+            background:#f5f5f5;
+            padding:40px;
+        }
+
+        .container{
+            background:white;
+            padding:30px;
+            border-radius:15px;
+        }
+
+        h1{
+            text-align:center;
+        }
+
+        img{
+            width:100%;
+            margin-top:20px;
+        }
+
+        .btn{
+            text-align:center;
+            margin-top:20px;
+        }
+
+        button{
+            padding:10px 20px;
+            background:#4CAF50;
+            color:white;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Customer Analytics Dashboard</h1>
+
+    <img src="{{ url_for('static', filename='graph.png') }}">
+
+    <!-- DOWNLOAD BUTTON -->
+    <div class="btn">
+        <a href="{{ url_for('download_report') }}">
+            <button>Download Report</button>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>
